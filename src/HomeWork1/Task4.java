@@ -12,12 +12,15 @@ public class Task4 {
         Например, "это однозначное положительное число".
         Достаточно будет определить, является ли число однозначным, " двузначным или трехзначным и более. */
 
-        double number;
+        //Variables
+        double number; //Решил разбавить задание ещё на проверку float или int, не особо тяжёлая реализация
 
         Scanner scanner = new Scanner(System.in);
         String placeholder;
 
-        for (; ; ) { //цикл ввода
+        //Input
+        //Input cycle
+        for (; ; ) {
             System.out.print("Enter number: ");
             placeholder = scanner.nextLine();
             try { // проверка что ввод является числом
@@ -28,6 +31,7 @@ public class Task4 {
             }
         }
 
+        //Logic + Output
         //Int or double check
         if (number - (int) number != 0) { // 100.10 - 100 = 0.1
             System.out.println("It is a floating point number!");

@@ -2,8 +2,6 @@ package HomeWork1;
 
 import java.util.Scanner;
 
-import static java.lang.Math.abs;
-
 public class Task6 {
     public static void main(String args[]) {
 
@@ -19,6 +17,7 @@ public class Task6 {
         Scanner scanner = new Scanner(System.in);
         String placeholder;
 
+        //Logic
         //Input cycle
         for (; ; ) {
             System.out.print("Enter integer number: ");
@@ -42,6 +41,5 @@ public class Task6 {
 
         //Output
         System.out.println("Number changed to: " + number);
-
     }
 }

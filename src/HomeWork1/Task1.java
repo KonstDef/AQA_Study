@@ -9,13 +9,20 @@ public class Task1 {
         /*1. Объявить переменные с помощью которых можно будет посчитать общую сумму покупки нескольких товаров.
         Например плитки шоколада, кофе и пакеты молока.*/
 
+        /*И тут Остапа понесло... Решил сделать что-то вроде макета магазинного компаньона.
+        Самому бы заданию с лихвой хватило значений:
+        double chocolate, coffee, milk;
+        double price = chocolate + coffee + 2*milk;
+        */
+
+        //Logic
         //Creating main shopCart class
         class shopCart {
 
             //Creating shopping cart as list of its product
             //Данный конкретный момент с List помню из C++, где попытка использовать Array заканчивалась "Это фиаско, братан!"
-            List<product> cart = new ArrayList<product>(); // Вот тут было самое интересное, просто добавив List<product> cart
-            //Я постоянно ловил Null pointer, благо сообразил зайти в debug, увидел что
+            List<product> cart = new ArrayList<>(); // Вот тут было самое интересное, просто добавив List<product> cart
+            //Я постоянно ловил Null pointer с ссылкой на метод, благо сообразил зайти в debug и определить что причина в объявлении
 
             //Creating class of shopping cart product
             class product {
@@ -40,6 +47,8 @@ public class Task1 {
                 }
 
                 //Дальше я расстроился т.к. у Джавы нету перегрузки операторов как таковой *sad*
+                //Написал бы в духе float + Product {float += product.price*qty} и было бы элегантней
+
                 //Method to get overall price of product for next calculations
                 public double price() {
                     return priceBought * qtyBought;
@@ -56,7 +65,7 @@ public class Task1 {
             //Buying something
             public void buy(String n, int qty, double p) {
 
-                //Тут мне IDEA помогла и сама выдала нужный мне фор когда я начал вбивать iter, по итогу itli :)
+                //Тут мне IDEA помогла и сама выдала нужный мне фор когда я начал вбивать iter, теперь знаю что для листов itli :)
                 for (int i = 0; i < cart.size(); i++) {
                     product product = cart.get(i);
                     if (product.name == n) {  //По сути я так и не разобрался как безопасно переименовывать имя класса *заглушка*
@@ -76,16 +85,16 @@ public class Task1 {
             public double sum() {
                 double placeholder = 0;
 
-                for (int i = 0; i < cart.size(); i++) { //Itterating through cart
-                    product product = cart.get(i);
+                //Itterating through cart
+                for (product product : cart) {
                     placeholder += product.price();
-                }
+                }//Тут мне IDEA сама подсказала что так можно иттерировать)
 
                 return placeholder; //returns sum of cart
             }
         }
 
-        //Test part
+        //Test
         shopCart cart = new shopCart(); //creating cart
 
         System.out.println("Creating list:");

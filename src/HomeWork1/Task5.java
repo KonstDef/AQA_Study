@@ -12,6 +12,7 @@ public class Task5 {
         Если хотя бы в одном случае отрезок окажется больше суммы двух других, то треугольника с такими сторонами не существует.
         (Стороны треугольника вводим с клавиатуры) */
 
+        //Logic
         class Triangle {
             public double a, b, c;
 
@@ -77,7 +78,7 @@ public class Task5 {
             }
         }
 
-        //body
+        //Body
         for (; ; ) {
             Triangle triangle = new Triangle();
             if (triangle.check()) {

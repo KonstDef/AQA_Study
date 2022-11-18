@@ -1,8 +1,5 @@
 package HomeWork1;
 
-import jdk.jshell.spi.ExecutionEnv;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Task3 {
@@ -11,12 +8,15 @@ public class Task3 {
         /*Объявить переменные, для подсчета общего количества предметов для сервировки стола.
          Например чашки, такое же количество блюдец и ложек.*/
 
-        int spoons, knives, forks, plates;
+        //Variables
+        int spoons, knives, forks, plates; //То же что и со второй таской)
 
         Scanner scanner = new Scanner(System.in);
         String placeholder;
 
-        for (; ; ) { //цикл ввода
+        //Logic
+        //Input cycle
+        for (; ; ) {
             System.out.print("Enter integer for guests: ");
             placeholder = scanner.nextLine();
             try { // проверка что ввод является интом
@@ -31,7 +31,8 @@ public class Task3 {
             }
         }
 
-        if (spoons == knives && knives == forks && forks == plates) {
+        //Output
+        if (spoons == knives && knives == forks && forks == plates) { //Проверка на случай кражи ложки вирусом!
             System.out.println("You need " + spoons + " knives, forks, spoons and plates.");
         } else {
             System.out.println("Something got wrong!");
