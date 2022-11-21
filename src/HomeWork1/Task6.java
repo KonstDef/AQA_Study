@@ -22,7 +22,7 @@ public class Task6 {
         for (; ; ) {
             System.out.print("Enter integer number: ");
             placeholder = scanner.nextLine();
-            try { // проверка что ввод является интом
+            try { // check int
                 number = Integer.parseInt(placeholder); //Google
                 break;
             } catch (NumberFormatException ex) {

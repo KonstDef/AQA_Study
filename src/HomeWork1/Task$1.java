@@ -9,28 +9,22 @@ public class Task$1 {
         /*1. Объявить переменные с помощью которых можно будет посчитать общую сумму покупки нескольких товаров.
         Например плитки шоколада, кофе и пакеты молока.*/
 
-        /*И тут Остапа понесло... Решил сделать что-то вроде макета магазинного компаньона.*/
-
         //Logic
-        //Creating main shopCart class
-        class shopCart {
+        //Creating main ShopCart class
+        class ShopCart {
 
-            //Creating shopping cart as list of its product
-            //Данный конкретный момент с List помню из C++, где попытка использовать Array заканчивалась "Это фиаско, братан!"
-            List<product> cart = new ArrayList<>(); // Вот тут было самое интересное, просто добавив List<product> cart
-            //Я постоянно ловил Null pointer с ссылкой на метод, благо сообразил зайти в debug и определить что причина в объявлении
-
+            List<Product> cart = new ArrayList<>();
             //Creating class of shopping cart product
-            class product {
+            class Product {
 
-                String name;            // Product name *де-факто заглушка ;)*
+                String name;            // Product name
                 int qtyRequired;        // Planned quantity
                 int qtyBought;          // Bought quantity
                 double priceBought;      // Price of !single! bought product, required for retrospective
                 boolean status;         // Status of product, T - bought, F (Default) - not
 
                 //Constructor
-                public product(String n, int r) {
+                public Product(String n, int r) {
                     name = n;   //заглушка
                     qtyRequired = r;
                 }
@@ -42,9 +36,6 @@ public class Task$1 {
                     if (qtyBought == qtyRequired) status = true;
                 }
 
-                //Дальше я расстроился т.к. у Джавы нету перегрузки операторов как таковой *sad*
-                //Написал бы в духе float + Product {float += product.price*qty} и было бы элегантней
-
                 //Method to get overall price of product for next calculations
                 public double price() {
                     return priceBought * qtyBought;
@@ -53,22 +44,21 @@ public class Task$1 {
 
             //Adding product to cart
             public void add(String name, int qty, boolean m) {  //name is for product name, qty for its required quantity, m - message
-                product prod = new product(name, qty);
-                cart.add(prod); //заглушка всё тянется и тянется по причине ещё пока недостатка моих знаний :)
+                Product prod = new Product(name, qty);
+                cart.add(prod);
                 if (m) System.out.println("Need to buy:\t" + name + "\t" + qty + "p.");
             }
 
             //Buying something
             public void buy(String n, int qty, double p) {
 
-                //Тут мне IDEA помогла и сама выдала нужный мне фор когда я начал вбивать iter, теперь знаю что для листов itli :)
                 for (int i = 0; i < cart.size(); i++) {
-                    product product = cart.get(i);
-                    if (product.name == n) {  //По сути я так и не разобрался как безопасно переименовывать имя класса *заглушка*
+                    Product product = cart.get(i);
+                    if (product.name == n) {
                         product.buy(qty, p);
                         System.out.println("Bought:\t" + n + "\t" + qty + "/" + product.qtyRequired + "p.\tfor " + product.priceBought + "$ per p.");
                         break;
-                    } else if (i == cart.size() - 1) { //обработка кейса нового продукта
+                    } else if (i == cart.size() - 1) { //check "new product" case
                         add(n, qty, false);
                         (cart.get(i + 1)).buy(qty, p);
                         System.out.println("+ Bought:\t" + n + "\t" + qty + "p.\tfor " + cart.get(i + 1).priceBought + "$ per p.");
@@ -82,16 +72,16 @@ public class Task$1 {
                 double placeholder = 0;
 
                 //Itterating through cart
-                for (product product : cart) {
+                for (Product product : cart) {
                     placeholder += product.price();
-                }//Тут мне IDEA сама подсказала что так можно иттерировать)
+                }
 
                 return placeholder; //returns sum of cart
             }
         }
 
         //Test
-        shopCart cart = new shopCart(); //creating cart
+        ShopCart cart = new ShopCart(); //creating cart
 
         System.out.println("Creating list:");
         cart.add("Chocolate", 5, true);  //adding prod1

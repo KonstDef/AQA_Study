@@ -19,11 +19,11 @@ public class Task3 {
         for (; ; ) {
             System.out.print("Enter integer for guests: ");
             placeholder = scanner.nextLine();
-            try { // проверка что ввод является интом
+            try { // int check
                 spoons = knives = forks = plates = Integer.parseInt(placeholder); //Google
-                if (spoons > 0) {
-                    break;
-                } else {
+
+                if (spoons > 0) break;
+                else {
                     System.out.println("Positive value required!");
                 }
             } catch (NumberFormatException ex) {
@@ -32,7 +32,7 @@ public class Task3 {
         }
 
         //Output
-        if (spoons == knives && knives == forks && forks == plates) { //Проверка на случай кражи ложки вирусом!
+        if (spoons == knives && knives == forks && forks == plates) {
             System.out.println("You need " + spoons + " knives, forks, spoons and plates.");
         } else {
             System.out.println("Something got wrong!");

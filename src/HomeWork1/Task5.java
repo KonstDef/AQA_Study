@@ -12,78 +12,63 @@ public class Task5 {
         Если хотя бы в одном случае отрезок окажется больше суммы двух других, то треугольника с такими сторонами не существует.
         (Стороны треугольника вводим с клавиатуры) */
 
+        //Variables
+        double a, b, c;
+
+        Scanner scanner = new Scanner(System.in);
+        String placeholder;
+
         //Logic
-        class Triangle {
-            public double a, b, c;
-
-            public Triangle() {
-                Scanner scanner = new Scanner(System.in);
-                String placeholder;
-
-                //a cycle
-                for (; ; ) {
-                    System.out.print("Enter number for a: ");
-                    placeholder = scanner.nextLine();
-                    try { // проверка что ввод является числом
-                        a = Double.parseDouble(placeholder); //Google
-                        if (a > 0) {
-                            break;
-                        } else {
-                            System.out.println("Enter positive number");
-                        }
-                    } catch (NumberFormatException ex) {
-                        System.out.println("Enter number!");
-                    }
+        //a cycle
+        for (; ; ) {
+            System.out.print("Enter number for a: ");
+            placeholder = scanner.nextLine();
+            try { // check int
+                a = Double.parseDouble(placeholder); //Google
+                if (a > 0) break;
+                else {
+                    System.out.println("Enter positive number");
                 }
-                //b cycle
-                for (; ; ) {
-                    System.out.print("Enter number for b: ");
-                    placeholder = scanner.nextLine();
-                    try { // проверка что ввод является числом
-                        b = Double.parseDouble(placeholder); //Google
-                        if (b > 0) {
-                            break;
-                        } else {
-                            System.out.println("Enter positive number");
-                        }
-                    } catch (NumberFormatException ex) {
-                        System.out.println("Enter number!");
-                    }
-                }
-                //c cycle
-                for (; ; ) {
-                    System.out.print("Enter number for c: ");
-                    placeholder = scanner.nextLine();
-                    try { // проверка что ввод является числом
-                        c = Double.parseDouble(placeholder); //Google
-                        if (c > 0) {
-                            break;
-                        } else {
-                            System.out.println("Enter positive number");
-                        }
-                    } catch (NumberFormatException ex) {
-                        System.out.println("Enter number!");
-                    }
-                }
-            }
-
-            public boolean check() {
-                if (a > b + c || b > a + c || c > a + b) {
-                    System.out.println("\nThis triangle can not exist!\n");
-                    return false;
-                } else {
-                    System.out.println("\nThis triangle is correct!");
-                    return true;
-                }
+            } catch (NumberFormatException ex) {
+                System.out.println("Enter number!");
             }
         }
 
-        //Body
+        //b cycle
         for (; ; ) {
-            Triangle triangle = new Triangle();
-            if (triangle.check()) {
-                break;
+            System.out.print("Enter number for b: ");
+            placeholder = scanner.nextLine();
+            try { // проверка что ввод является числом
+                b = Double.parseDouble(placeholder); //Google
+                if (b > 0) break;
+                else {
+                    System.out.println("Enter positive number");
+                }
+            } catch (NumberFormatException ex) {
+                System.out.println("Enter number!");
             }
+        }
+
+        //c cycle
+        for (; ; ) {
+            System.out.print("Enter number for c: ");
+            placeholder = scanner.nextLine();
+            try { // проверка что ввод является числом
+                c = Double.parseDouble(placeholder); //Google
+                if (c > 0) break;
+                else {
+                    System.out.println("Enter positive number");
+                }
+            } catch (NumberFormatException ex) {
+                System.out.println("Enter number!");
+            }
+        }
+
+        //Output
+        if (a > b + c || b > a + c || c > a + b) {
+            System.out.println("\nThis triangle can not exist!\n");
+        } else {
+            System.out.println("\nThis triangle is correct!");
         }
     }
 }

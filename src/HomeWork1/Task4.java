@@ -13,7 +13,7 @@ public class Task4 {
         Достаточно будет определить, является ли число однозначным, " двузначным или трехзначным и более. */
 
         //Variables
-        double number; //Решил разбавить задание ещё на проверку float или int, не особо тяжёлая реализация
+        double number; //Reason for double = to check if number is floating number or not
 
         Scanner scanner = new Scanner(System.in);
         String placeholder;
@@ -33,7 +33,7 @@ public class Task4 {
 
         //Logic + Output
         //Int or double check
-        if (number - (int) number != 0) { // 100.10 - 100 = 0.1
+        if (number % 1 != 0) {
             System.out.println("It is a floating point number!");
         } else {
             System.out.println("It is an integer number!");
@@ -49,7 +49,7 @@ public class Task4 {
         }
 
         //Level of number
-        if (abs(number) >= 1000) { //Flashback from R
+        if (abs(number) >= 1000) {
             System.out.println("It is Millenia number!");
         } else if (abs(number) >= 100) {
             System.out.println("It is Centuria number!");
@@ -58,6 +58,5 @@ public class Task4 {
         } else if (abs(number) > 0) {
             System.out.println("It is Numerica number!");
         }
-
     }
 }
