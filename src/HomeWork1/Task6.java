@@ -22,12 +22,12 @@ public class Task6 {
         for (; ; ) {
             System.out.print("Enter integer number: ");
             placeholder = scanner.nextLine();
-            try { // check int
+            try {
                 number = Integer.parseInt(placeholder); //Google
                 break;
             } catch (NumberFormatException ex) {
                 System.out.println("Enter integer!");
-            }
+            }// int check
         }
 
         //Positive, negative or zero check

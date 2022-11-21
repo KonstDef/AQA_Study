@@ -10,7 +10,7 @@ public class Task2 {
         а третья переменная равна сумме первых двух.*/
 
         //Variables
-        int var1, var2, var3;   //Знаю, что лучше было бы объявить их отдельной строкой, но проект маленький :)
+        int var1, var2, var3;
 
         Scanner scanner = new Scanner(System.in);
         String placeholder;
@@ -20,12 +20,12 @@ public class Task2 {
         for (; ; ) {
             System.out.print("Enter integer Variable 1: ");
             placeholder = scanner.nextLine();
-            try { // проверка что ввод является интом
-                var1 = Integer.parseInt(placeholder); //Google
+            try {
+                var1 = Integer.parseInt(placeholder);
                 break;
             } catch (NumberFormatException ex) {
                 System.out.println("Enter integer!");
-            }
+            } //int check
         }
 
         var2 = var1 + 3;

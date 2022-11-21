@@ -19,6 +19,5 @@ public class Task1 {
 
         //Output
         System.out.println("\nYou paid: " + price + "$");
-        //Todo: Add evaluation of extra payments and not bought products
     }
 }

@@ -9,7 +9,7 @@ public class Task3 {
          Например чашки, такое же количество блюдец и ложек.*/
 
         //Variables
-        int spoons, knives, forks, plates; //То же что и со второй таской)
+        int spoons, knives, forks, plates;
 
         Scanner scanner = new Scanner(System.in);
         String placeholder;
@@ -20,7 +20,7 @@ public class Task3 {
             System.out.print("Enter integer for guests: ");
             placeholder = scanner.nextLine();
             try { // int check
-                spoons = knives = forks = plates = Integer.parseInt(placeholder); //Google
+                spoons = knives = forks = plates = Integer.parseInt(placeholder);
 
                 if (spoons > 0) break;
                 else {

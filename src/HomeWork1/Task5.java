@@ -31,37 +31,37 @@ public class Task5 {
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("Enter number!");
-            }
+            } //num check
         }
 
         //b cycle
         for (; ; ) {
             System.out.print("Enter number for b: ");
             placeholder = scanner.nextLine();
-            try { // проверка что ввод является числом
-                b = Double.parseDouble(placeholder); //Google
+            try {
+                b = Double.parseDouble(placeholder);
                 if (b > 0) break;
                 else {
                     System.out.println("Enter positive number");
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("Enter number!");
-            }
+            } //num check
         }
 
         //c cycle
         for (; ; ) {
             System.out.print("Enter number for c: ");
             placeholder = scanner.nextLine();
-            try { // проверка что ввод является числом
-                c = Double.parseDouble(placeholder); //Google
+            try {
+                c = Double.parseDouble(placeholder);
                 if (c > 0) break;
                 else {
                     System.out.println("Enter positive number");
                 }
             } catch (NumberFormatException ex) {
                 System.out.println("Enter number!");
-            }
+            } //num check
         }
 
         //Output

@@ -23,12 +23,12 @@ public class Task4 {
         for (; ; ) {
             System.out.print("Enter number: ");
             placeholder = scanner.nextLine();
-            try { // проверка что ввод является числом
-                number = Double.parseDouble(placeholder); //Google
+            try {
+                number = Double.parseDouble(placeholder);
                 break;
             } catch (NumberFormatException ex) {
                 System.out.println("Enter number!");
-            }
+            } //num check
         }
 
         //Logic + Output

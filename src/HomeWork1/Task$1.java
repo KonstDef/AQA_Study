@@ -25,7 +25,7 @@ public class Task$1 {
 
                 //Constructor
                 public Product(String n, int r) {
-                    name = n;   //заглушка
+                    name = n;
                     qtyRequired = r;
                 }
 
