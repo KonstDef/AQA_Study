@@ -1,0 +1,68 @@
+    Transport методы:
+    public void info() - возвращает общую информацию из Typeable
+    public void status() - возвращает статус из Usable
+    public void rideUp() - подгатавливает транспорт к поездке
+
+    public String infoEngine() - возвращает строку двигателя (с информацией о лошад. силах и кВ) - общий Typeable
+    public String infoFuel() - возвращает строку топлива (с информацией о топливе) - общий Typeable
+    public String infoDimensions() - возвращает строку размера аппарата и его тоннажа - общий Typeable
+    public String infoPilots() - возвращает строку о пилотах и пассажирах - общий Typeable
+    public String infoEnv() - возвращаеет строку передвижения - зависит от наследного класса Land, Air, Water
+
+    public void start() - стартует двигатель - общий Typeable
+    public void stop() - останавливает двигатель - общий Typeable
+
+    public void ride(double distance) - выдаёт строку о передижении транспорта на дистанцию distance - общий для Typeable
+    public void ride(double distance, double height) - выдаёт строке о передвижении транспорта на дистанцию distance с высотой heighy - для Water::Floating (submersible) и всех Air
+    public void infoTime(double time) - выдаёт строку о передвижении транспорта на макс. скорости за время time - только для Transport::Wheel
+
+    public void speedUp(double speed) - увеличивает скорость транспорта - общий для Typeable
+
+    public void fill(double fuel) - заправляет транспорт на значение fuel - общий для Typeable
+    public void fillUp() - заправляет транспорт до максимума - общий для Typeable
+
+    public int addPilots(int pilots) - добавляет пилотов - общий для Typeable
+    public int addPassengers(int passengers) - добавляет пассажиров - общий для Typeable
+    public void evacuate() - эвакуирует всех кого можно - общий для Typeable
+
+    public double load(double weight) - загружает транспорт, если нету места и Usable==Cargo, то переносит оставшийся груз в Cargo - общий для Typeable
+    public double unload(double weight) - разгружает транспорт, если Usable==Cargo, то разгружает сначала его - общий для Typeable
+    public void freeSpace() - узнаёт оставшееся место основываясь на тонаже - общий для Typeable
+
+    public void usage() - выводит использование транспорта - общий для Usable
+    public void use() - использут транспорт - общий для Usable
+
+    public void loadAmmo(int ammo) - загружает транспорт боеприпасами - для Usable::Military
+    public boolean catapult() - катапультирует пилотов (и только их если catapulable) - для Usable::Military
+    public void fire(int i) - стреляет всеми оружиями - для Usable::Military
+
+    ---
+    TransportType
+    Закрытый метод:
+    private double toKw(); - переводит л.с. в киллоВатты
+
+    Конструктор:
+    public String name; - имя или марка транспорта
+
+    private String engine; - название движка
+    private double power; - лошидные силы
+    private double maxSpeed; - максимальная скорость транспорта
+    private boolean started; - булеан если заведён или нет
+
+    private String fuelType; - тип топлива
+    private double fuelMax; - макс. значение для топлива
+    private double consumption; - потребление л на 100км
+
+    private int pilotsMax; - макс. число пилотов
+    private int passengersMax; - макс. число пассажиров
+
+    private double[] dimensions = new double[3]; - длинна, широта, высота транспорта
+    private double[] tonnage = new double[2]; - тоннаж обычный/максимуму
+
+    Переменные для статус:
+    private double fuel; - топливо
+    private int pilots; - пилоты
+    private int passengers; - пассажиры
+    private double speed; - скорость
+    private double cargo; - груз
+    private double milleage=0; - пробег
